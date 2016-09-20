@@ -2,7 +2,7 @@
 
 Implementation for Google polyline algorithm with **extra** salt and sugar.
 
-[img](demo.png)
+![Demo image](/demo.png)
 
 Documentation for polyline algorithm
  > https://developers.google.com/maps/documentation/utilities/polylinealgorithm
