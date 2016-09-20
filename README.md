@@ -28,21 +28,21 @@ lib.mergePolylines(['ecfnJ_cgwCDnG??', '{BN?Aq@n@??eEhH@?CYEkCA', '?gNb@u@??K[Cc
 ### Core
 
 ```
-✓ [Encoding](#encoding)
+✓ Encoding
 
-✓ [Decoding](#decoding)
+✓ Decoding
 
-✓ [Length](#length)
+✓ Length
 
 ✓ Merging
-  ✓ [Merge two polylines](#merge-two-polylines)
-  ✓ [Merge multiple polylines](#merge-multple-polylines)
+  ✓ Merge two polylines
+  ✓ Merge multiple polylines
 ```
 
 ### Supporting functions
 ```
-✓ [Haversine](#haversine)
-✓ [Haversine distance](#haversine-distance)
+✓ Haversine
+✓ Haversine distance
 ```
 
 ### Documentation
