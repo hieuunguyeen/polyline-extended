@@ -1,0 +1,33 @@
+{
+  "name": "polyline-extended",
+  "version": "0.0.1",
+  "description": "Contains many polyline functions and utilities",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blackevil245/polyline-extended.git"
+  },
+  "keywords": [
+    "polyline",
+    "haversine",
+    "extended",
+    "geometry",
+    "google",
+    "polyline",
+    "merge"
+  ],
+  "author": "James Nguyen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blackevil245/polyline-extended/issues"
+  },
+  "homepage": "https://github.com/blackevil245/polyline-extended#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "gulp": "^3.9.1",
+    "mocha": "^3.0.2"
+  }
+}
