@@ -1,8 +1,12 @@
 {
   "name": "polyline-extended",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Contains many polyline functions and utilities",
   "main": "index.js",
+  "engines": {
+    "node": "4.3.2",
+    "npm": "3.9.6"
+  },
   "scripts": {
     "test": "mocha"
   },
@@ -16,10 +20,13 @@
     "extended",
     "geometry",
     "google",
-    "polyline",
+    "distance",
     "merge"
   ],
-  "author": "James Nguyen",
+  "author": {
+    "name": "James Nguyen",
+    "email": "blackevil245@gmail.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/blackevil245/polyline-extended/issues"
@@ -27,7 +34,15 @@
   "homepage": "https://github.com/blackevil245/polyline-extended#readme",
   "devDependencies": {
     "chai": "^3.5.0",
+    "eslint": "^3.5.0",
+    "eslint-config-airbnb": "^11.1.0",
+    "eslint-config-airbnb-base": "^7.1.0",
+    "eslint-plugin-import": "^1.15.0",
+    "eslint-plugin-jsx-a11y": "^2.2.2",
+    "eslint-plugin-react": "^6.3.0",
     "gulp": "^3.9.1",
+    "gulp-eslint": "^3.0.1",
+    "gulp-mocha": "^3.0.1",
     "mocha": "^3.0.2"
   }
 }
