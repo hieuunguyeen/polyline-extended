@@ -1,6 +1,13 @@
 'use strict';
 
-const degToRad = require('../../utils/units-conversion').degToRad;
+/**
+ * Convert Degree to Radian
+ * @param {Float} deg - Degree
+ * @return {Float} Radian
+ */
+function _degToRad(deg) {
+  return ((deg * Math.PI) / 180);
+}
 
 /**
  * Calculate haversine from 2 points
@@ -29,12 +36,12 @@ function haversineDistance(_point1, _point2, _radius) {
 
   _point1 = _point1.map(item => {
     if (!isNaN(item)) throw Error(`Input '${item}' is not a number`);
-    return degToRad(item);
+    return _degToRad(item);
   });
 
   _point2 = _point2.map(item => {
     if (!isNaN(item)) throw Error(`Input '${item}' is not a number`);
-    return degToRad(item);
+    return _degToRad(item);
   });
 
   const radius = _radius || 6371;

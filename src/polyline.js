@@ -1,6 +1,6 @@
 'use strict';
 
-const _haversineDistance = require('../haversine').haversineDistance;
+const _haversineDistance = require('./haversine').haversineDistance;
 
 /**
  * Decode a polyline string into an array of coordinates.
