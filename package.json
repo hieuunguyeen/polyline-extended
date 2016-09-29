@@ -1,7 +1,7 @@
 {
   "name": "polyline-extended",
-  "version": "1.0.0",
-  "description": "Contains many polyline functions and utilities",
+  "version": "1.0.1",
+  "description": "Encode, decode, length, merge polylines",
   "main": "index.js",
   "engines": {
     "node": "4.3.2",
@@ -16,11 +16,7 @@
   },
   "keywords": [
     "polyline",
-    "haversine",
-    "extended",
     "geometry",
-    "google",
-    "distance",
     "merge"
   ],
   "author": {
@@ -43,6 +39,7 @@
     "gulp": "^3.9.1",
     "gulp-eslint": "^3.0.1",
     "gulp-mocha": "^3.0.1",
+    "gulp-sequence": "^0.4.6",
     "mocha": "^3.0.2"
   }
 }

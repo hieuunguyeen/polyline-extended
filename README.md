@@ -29,11 +29,8 @@ lib.mergePolylines(['ecfnJ_cgwCDnG??', '{BN?Aq@n@??eEhH@?CYEkCA', '?gNb@u@??K[Cc
 
 ```
 ✓ Encoding
-
 ✓ Decoding
-
 ✓ Length
-
 ✓ Merging
   ✓ Merge two polylines
   ✓ Merge multiple polylines
