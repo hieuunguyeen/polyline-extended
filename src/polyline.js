@@ -123,13 +123,11 @@ function encode(points) {
  * NOTE: Support flat surface and sphere
  *
  * @param {String} polyline - The polyline to calculate from
- * @param {Float} radius - The radius of the sphere, if not input, distance is calculated on flat surface
- * @param {Object} options - {String} options.unit. {Float - default km} options.radius
+ * @param {Float} unit - The unit of the response
  * @return {Float} length - unit based on options.radius unit
  */
-function length(polyline, options) {
+function length(polyline, unit) {
   if (typeof polyline !== 'string') throw new Error(`Input polyline is not a string, got ${polyline}`);
-  if (options && options.radius && Number(options.radius) !== options.radius) throw new Error(`Input radius is not a number, got ${options.radius}`);
 
   const decodedPolyline = decode(polyline);
   let distance = 0;
@@ -138,17 +136,10 @@ function length(polyline, options) {
     const lat = [decodedPolyline[i][0], decodedPolyline[i][1]];
     const lon = [decodedPolyline[i + 1][0], decodedPolyline[i + 1][1]];
 
-    if (options && options.radius) {
-      // Haversine distance if there is radius
-      distance += _haversineDistance(lat, lon, options.radius);
-    } else {
-      // Flat distance if there is not radius
-      distance += Math.sqrt(Math.pow(lon[0] - lat[0], 2) - Math.pow(lon[1] - lat[1], 2));
-    }
+    distance += _haversineDistance(lat, lon);
   }
-
-  if (options && options.unit) {
-    switch (options.unit) {
+  if (unit) {
+    switch (unit) {
       case 'meter':
         return distance * 1000;
       case 'kilometer':
