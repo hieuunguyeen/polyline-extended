@@ -74,8 +74,7 @@ function decode(polyline, precision)
  * NOTE: Support flat surface and sphere
  *
  * @param {String} polyline - The polyline to calculate from
- * @param {Float} radius - The radius of the sphere, if not input, distance is calculated on flat surface
- * @param {Object} options - {String} options.unit. {Float - default km} options.radius
+ * @param {Float} unit - The unit of the response
  * @return {Float} length - unit based on options.radius unit
  */
 function length(polyline, options)
@@ -108,7 +107,7 @@ function mergePolylines(polylines)
 
 ```javascript
 /**
- * Calculate haversine from 2 points
+ * Calculate haversine of a number
  * @param number {Float} input number
  * @return haversine {Float}
  */
@@ -120,11 +119,11 @@ function haversine(number)
 ```javascript
 /**
  * Calculate the haversine distance between 2 points
+ * on the Earth, using radius of 6371 km
  *
  * @param point1 {Array} [lat,lon] - lat, lon are mandatory
  * @param point2 {Array} [lat,lon] - lat, lon are mandatory
- * @optional radius {Float} Sphere's radius. Default: Earth's radius 6371 km
- * @return distance {Float} distance in unit (depends on radius unit)
+ * @return distance {Float - km}
  */
 function haversineDistance(point1, point2, radius)
 ```
