@@ -41,5 +41,8 @@
     "gulp-mocha": "^3.0.1",
     "gulp-sequence": "^0.4.6",
     "mocha": "^3.0.2"
+  },
+  "dependencies": {
+    "gulp-sequence": "^0.4.6"
   }
 }

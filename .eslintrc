@@ -32,7 +32,6 @@
     "import/no-unresolved": 0, // fails in Travis
     "no-bitwise": 0,
     "no-plusplus": 0,
-    "linebreak-style": 0,
     "import/no-extraneous-dependencies": 0,
 
     "jsx-quotes": 1,
