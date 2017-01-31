@@ -12,9 +12,8 @@ Documentation for polyline algorithm
 ```javascript
 const lib = require('polyline-extended');
 
-lib.encode('ecfnJ_cgwCDnG??{BN?Aq@n@??eEhH@?CYEkCA?gNb@u@??K[CcDXFpE');
-
-lib.decode([[60.123, 24.12312], [60.13123, 25.21312], [lat, lon]]);
+lib.decode('ecfnJ_cgwCDnG??{BN?Aq@n@??eEhH@?CYEkCA?gNb@u@??K[CcDXFpE');
+lib.encode([[60.123, 24.12312], [60.13123, 25.21312], [lat, lon]]);
 
 lib.length('ecfnJ_cgwCDnG??{BN?Aq@n@??eEhH@?CYEkCA?gNb@u@??K[CcDXFpE', { radius: 400, unit: 'meter' });
 
