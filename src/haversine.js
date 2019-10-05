@@ -2,17 +2,18 @@
 
 /**
  * Convert Degree to Radian
- * @param {Float} deg - Degree
- * @return {Float} Radian
+ * @param {float} deg - Degree
+ * @return {float} Radian
  */
 function _degToRad(deg) {
-  return ((deg * Math.PI) / 180);
+  return (deg * Math.PI) / 180;
 }
 
 /**
  * Calculate haversine of a number
- * @param number {Float} input number
- * @return haversine {Float}
+ *
+ * @param {float} number - input number
+ * @return {float} haversine
  */
 function haversine(number) {
   if (isNaN(number)) throw Error(`Input '${number}' is not a number`);
@@ -23,12 +24,11 @@ function haversine(number) {
  * Calculate the haversine distance between 2 points
  * on the Earth, using radius of 6371 km
  *
- * @param point1 {Array} [lat,lon] - lat, lon are mandatory
- * @param point2 {Array} [lat,lon] - lat, lon are mandatory
- * @return distance {Float - km}
+ * @param {Array[{ lat,lon }]} point1 - lat, lon are mandatory
+ * @param {Array[{ lat,lon }]} point2 - lat, lon are mandatory
+ * @return {float} distance
  */
 function haversineDistance(_point1, _point2) {
-
   if (!_point1 || _point1.length !== 2) throw Error(`Point 1 input is not valid: ${_point1.toString()}`);
   if (!_point2 || _point2.length !== 2) throw Error(`Point 2 input is not valid: ${_point2.toString()}`);
 
@@ -42,7 +42,7 @@ function haversineDistance(_point1, _point2) {
     return _degToRad(item);
   });
 
-  const radius =  6371;
+  const radius = 6371;
   const point1 = { lat: _point1[0], lon: _point1[1] };
   const point2 = { lat: _point2[0], lon: _point2[1] };
 

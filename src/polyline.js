@@ -7,10 +7,10 @@ const _haversineDistance = require('./haversine').haversineDistance;
  * @see This is adapted from the implementation in Project-OSRM
  * https://github.com/DennisOSRM/Project-OSRM-Web/blob/master/WebContent/routing/OSRM.RoutingGeometry.js
  *
- * @param {String} polyline - polyline String
- * @param {Int} precision - coordinates precision (number of decimal)
+ * @param {string} polyline - polyline string
+ * @param {integer} precision - coordinates precision (number of decimal)
  *
- * @return {Array.Array.Number} coordinates
+ * @return {Array[Array[Number]]} coordinates
  */
 function decode(polyline, precision) {
   if (typeof polyline !== 'string') throw new Error(`Input polyline is not a string, got ${polyline}`);
@@ -28,7 +28,6 @@ function decode(polyline, precision) {
   const factor = Math.pow(10, precision || 5);
 
   while (index < polyline.length) {
-
     byte = null;
     shift = 0;
     result = 0;
@@ -39,7 +38,7 @@ function decode(polyline, precision) {
       shift += 5;
     } while (byte >= 0x20);
 
-    latitude_change = ((result & 1) ? ~(result >> 1) : (result >> 1));
+    latitude_change = result & 1 ? ~(result >> 1) : result >> 1;
 
     shift = result = 0;
 
@@ -49,7 +48,7 @@ function decode(polyline, precision) {
       shift += 5;
     } while (byte >= 0x20);
 
-    longitude_change = ((result & 1) ? ~(result >> 1) : (result >> 1));
+    longitude_change = result & 1 ? ~(result >> 1) : result >> 1;
 
     lat += latitude_change;
     lon += longitude_change;
@@ -63,11 +62,11 @@ function decode(polyline, precision) {
 function _encodeNumber(num) {
   let encodeString = '';
   while (num >= 0x20) {
-    encodeString += (String.fromCharCode((0x20 | (num & 0x1f)) + 63));
+    encodeString += String.fromCharCode((0x20 | (num & 0x1f)) + 63);
     num >>= 5;
   }
 
-  encodeString += (String.fromCharCode(num + 63));
+  encodeString += String.fromCharCode(num + 63);
 
   return encodeString;
 }
@@ -75,10 +74,10 @@ function _encodeNumber(num) {
 function _encodeSignedValue(num) {
   let sgn_num = num << 1;
   if (num < 0) {
-    sgn_num = ~(sgn_num);
+    sgn_num = ~sgn_num;
   }
 
-  return (_encodeNumber(sgn_num));
+  return _encodeNumber(sgn_num);
 }
 
 function _encodePoint(plat, plon, lat, lon) {
@@ -95,11 +94,12 @@ function _encodePoint(plat, plon, lat, lon) {
 
 /**
  * Encode pairs of lat and lon into a polyline encoded string
- * @param points {Array.Array[lat, lon]}
- * @return encoded polyline {String}
+ *
+ * @param {Array[Array[lat, lon]]} points
+ *
+ * @return {string} polyline - encoded polyline
  */
 function encode(points) {
-
   let plat = 0;
   let plon = 0;
 
@@ -122,8 +122,9 @@ function encode(points) {
  * Calculate the distance of the polyline. If radius is not provided, distance is flat, else distance is haversine distance
  * NOTE: Support flat surface and sphere
  *
- * @param {String} polyline - The polyline to calculate from
- * @param {Float} unit - The unit of the response
+ * @param {string} polyline - The polyline to calculate from
+ * @param {enum={meter, kilometer}]} [unit=kilometer] - The unit of the response.
+ *
  * @return {Float} length - unit based on options.radius unit
  */
 function length(polyline, unit) {
@@ -132,7 +133,6 @@ function length(polyline, unit) {
   const decodedPolyline = decode(polyline);
   let distance = 0;
   for (let i = 0; i < decodedPolyline.length - 1; i++) {
-
     const lat = [decodedPolyline[i][0], decodedPolyline[i][1]];
     const lon = [decodedPolyline[i + 1][0], decodedPolyline[i + 1][1]];
 
@@ -153,9 +153,10 @@ function length(polyline, unit) {
 
 /**
  * Merge two polylines into one single polyline
- * @param poly1 {String} origin polyline
- * @param poly2 {String} connected polyline
- * @return finalPolyline {String} merged polyline
+ * @param {string} poly1 - origin polyline
+ * @param {string} poly2 - connected polyline
+ *
+ * @return {string} finalPolyline - merged polyline
  */
 function mergeTwoPolylines(poly1, poly2) {
   const decodedPoly1 = decode(poly1);
@@ -184,8 +185,9 @@ function mergeTwoPolylines(poly1, poly2) {
 
 /**
  * Merge multiple polylines into a connected one
- * @param polylines {Array.String} Array of multi polylines
- * @return {String} one single merged polyline
+ * @param  {Array[string]} polylines - Array of multi polylines
+ *
+ * @return {string} one single merged polyline
  */
 function mergePolylines(polylines) {
   let cachedPolyline = polylines[0];
